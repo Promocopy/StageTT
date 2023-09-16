@@ -5,7 +5,7 @@ using StageTT.Entity;
 
 namespace StageTT.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api/[Controller]")]
     [ApiController]
     public class PersonController : ControllerBase
     {
@@ -16,6 +16,7 @@ namespace StageTT.Controllers
         }
 
         [HttpGet("{id}")]
+        //[Route("/Get")]
         public IActionResult Get(int id)
         {
             try
@@ -33,7 +34,8 @@ namespace StageTT.Controllers
             }
         }
 
-        [HttpPost()]
+        [HttpPost]
+        //[Route("/Post")]
         public IActionResult post(PersonRequest id)
         {
             Person user = new Person();
@@ -51,6 +53,7 @@ namespace StageTT.Controllers
         }
 
         [HttpPut("{id}")]
+        //[Route("ap/Put")]
         public IActionResult put(int id, Person idf)
         {
             if (id!=idf.Id)
@@ -76,6 +79,7 @@ namespace StageTT.Controllers
         }
 
         [HttpDelete("{id}")]
+        //[Route("api/Delete")]
         public IActionResult delete(int id)
         {
             try
@@ -95,6 +99,13 @@ namespace StageTT.Controllers
                 return StatusCode(500, "An error has occurred");
             }
 
+        }
+
+        [HttpGet]
+        //[Route("api")]
+        public IActionResult results()
+        {
+            return Ok("This api is active");
         }
     }
 }

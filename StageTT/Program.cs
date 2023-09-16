@@ -5,7 +5,7 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddDbContext<PersonContext>(option =>
-    option.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"), sqlServerOptionsAction: sqloption =>
+    option.UseSqlServer(builder.Configuration.GetConnectionString("Connection"), sqlServerOptionsAction: sqloption =>
     {
         sqloption.EnableRetryOnFailure();
     })
